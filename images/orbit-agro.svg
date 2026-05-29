@@ -1,0 +1,190 @@
+<svg width="980" height="420" viewBox="0 0 980 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .star { animation: twinkle 3s ease-in-out infinite; transform-origin: center; }
+    .star:nth-child(2n) { animation-delay: .7s; }
+    .star:nth-child(3n) { animation-delay: 1.4s; }
+
+    .satellite { animation: satelliteSweep 7s ease-in-out infinite; }
+    .satGlow { animation: glowPulse 2.4s ease-in-out infinite; }
+    .beam { animation: beamSweep 7s ease-in-out infinite; transform-origin: 488px 130px; }
+    .scanLine { animation: scanField 3.2s ease-in-out infinite; }
+    .gridLine { stroke-dasharray: 210; animation: drawGrid 4s ease-in-out infinite alternate; }
+    .targetArea { animation: targetLock 4.5s ease-in-out infinite; transform-origin: 494px 276px; }
+    .targetRing { stroke-dasharray: 18 12; animation: targetDash 5s linear infinite; }
+    .plantRow { stroke-dasharray: 180; animation: plantGrow 4.5s ease-in-out infinite; }
+    .plantRow:nth-child(2) { animation-delay: .25s; }
+    .plantRow:nth-child(3) { animation-delay: .5s; }
+    .plantRow:nth-child(4) { animation-delay: .75s; }
+    .sprout { animation: sprout 4.5s ease-in-out infinite; transform-origin: bottom center; }
+    .sprout:nth-child(2n) { animation-delay: .35s; }
+    .sprout:nth-child(3n) { animation-delay: .7s; }
+    .metricBar { animation: fillBar 4.5s ease-in-out infinite; transform-origin: left center; }
+    .signal { animation: signal 1.8s ease-in-out infinite; }
+    .signal:nth-child(2) { animation-delay: .35s; }
+    .signal:nth-child(3) { animation-delay: .7s; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: .2; transform: scale(.75); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+    @keyframes satelliteSweep {
+      0%, 100% { transform: translate(40px, 8px) rotate(-5deg); }
+      45%, 55% { transform: translate(-34px, -6px) rotate(4deg); }
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: .35; transform: scale(.95); }
+      50% { opacity: .9; transform: scale(1.08); }
+    }
+    @keyframes beamSweep {
+      0%, 100% { opacity: .16; transform: skewX(-12deg) scaleX(.65); }
+      45%, 55% { opacity: .78; transform: skewX(9deg) scaleX(1); }
+    }
+    @keyframes scanField {
+      0% { transform: translateY(-82px); opacity: 0; }
+      18% { opacity: .9; }
+      82% { opacity: .9; }
+      100% { transform: translateY(92px); opacity: 0; }
+    }
+    @keyframes drawGrid {
+      from { stroke-dashoffset: 210; opacity: .18; }
+      to { stroke-dashoffset: 0; opacity: .72; }
+    }
+    @keyframes targetLock {
+      0%, 28% { opacity: .18; transform: scale(.94); }
+      45%, 70% { opacity: 1; transform: scale(1.02); }
+      100% { opacity: .32; transform: scale(.97); }
+    }
+    @keyframes targetDash {
+      to { stroke-dashoffset: -180; }
+    }
+    @keyframes plantGrow {
+      0%, 38% { stroke-dashoffset: 180; opacity: .2; }
+      68%, 100% { stroke-dashoffset: 0; opacity: 1; }
+    }
+    @keyframes sprout {
+      0%, 48% { opacity: 0; transform: scaleY(.15); }
+      72%, 100% { opacity: 1; transform: scaleY(1); }
+    }
+    @keyframes fillBar {
+      0%, 32% { transform: scaleX(.18); }
+      62%, 100% { transform: scaleX(1); }
+    }
+    @keyframes signal {
+      0%, 100% { opacity: .28; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-6px); }
+    }
+  </style>
+
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="72%">
+      <stop offset="0%" stop-color="#123C35"/>
+      <stop offset="52%" stop-color="#061B24"/>
+      <stop offset="100%" stop-color="#030814"/>
+    </radialGradient>
+    <linearGradient id="earth" x1="255" y1="175" x2="735" y2="360">
+      <stop stop-color="#163B34"/>
+      <stop offset=".5" stop-color="#0F2A26"/>
+      <stop offset="1" stop-color="#071A18"/>
+    </linearGradient>
+    <linearGradient id="target" x1="370" y1="218" x2="618" y2="337">
+      <stop stop-color="#B9FFD3"/>
+      <stop offset=".42" stop-color="#75B843"/>
+      <stop offset="1" stop-color="#1D6F47"/>
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="980" height="420" rx="30" fill="url(#bg)"/>
+  <rect x="1.5" y="1.5" width="977" height="417" rx="28.5" stroke="#75B843" stroke-opacity=".48" stroke-width="3"/>
+
+  <g>
+    <circle class="star" cx="74" cy="66" r="2.6" fill="#B9FFD3"/>
+    <circle class="star" cx="155" cy="132" r="2.1" fill="#7CFFB2"/>
+    <circle class="star" cx="260" cy="74" r="3" fill="#E8FFF0"/>
+    <circle class="star" cx="705" cy="68" r="3" fill="#B9FFD3"/>
+    <circle class="star" cx="835" cy="128" r="2.4" fill="#7CFFB2"/>
+    <circle class="star" cx="905" cy="72" r="2.8" fill="#E8FFF0"/>
+    <circle class="star" cx="882" cy="276" r="2.1" fill="#7CFFB2"/>
+    <circle class="star" cx="106" cy="292" r="2.2" fill="#B9FFD3"/>
+  </g>
+
+  <path d="M104 336C230 198 750 198 876 336" stroke="#7CFFB2" stroke-opacity=".09" stroke-width="118" stroke-linecap="round"/>
+
+  <g class="satellite" filter="url(#softGlow)">
+    <ellipse class="satGlow" cx="490" cy="92" rx="108" ry="36" fill="#7CFFB2" opacity=".2"/>
+    <path d="M408 91H572" stroke="#7CFFB2" stroke-width="4" stroke-linecap="round"/>
+    <rect x="452" y="62" width="76" height="52" rx="16" fill="#E8FFF0"/>
+    <rect x="362" y="76" width="66" height="30" rx="6" fill="#75B843"/>
+    <rect x="552" y="76" width="66" height="30" rx="6" fill="#75B843"/>
+    <path d="M428 91H452M528 91H552" stroke="#B9FFD3" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="490" cy="88" r="12" fill="#06121F"/>
+    <circle cx="490" cy="88" r="5" fill="#38BDF8"/>
+    <path d="M472 114L446 142M508 114L534 142" stroke="#E8FFF0" stroke-width="5" stroke-linecap="round"/>
+    <circle class="signal" cx="642" cy="82" r="5" fill="#7CFFB2"/>
+    <circle class="signal" cx="662" cy="82" r="5" fill="#38BDF8"/>
+    <circle class="signal" cx="682" cy="82" r="5" fill="#B9FFD3"/>
+  </g>
+
+  <path class="beam" d="M430 132L286 338H694L550 132Z" fill="#7CFFB2" opacity=".32"/>
+
+  <g transform="translate(490 282)">
+    <ellipse cx="0" cy="20" rx="292" ry="92" fill="url(#earth)"/>
+    <ellipse cx="0" cy="20" rx="292" ry="92" stroke="#75B843" stroke-opacity=".42" stroke-width="2"/>
+
+    <path class="gridLine" d="M-246 20C-176-4-82-17 0-17C82-17 176-4 246 20" stroke="#7CFFB2" stroke-width="2"/>
+    <path class="gridLine" d="M-238 50C-164 23-77 11 0 11C77 11 164 23 238 50" stroke="#7CFFB2" stroke-width="2"/>
+    <path class="gridLine" d="M-188 -20C-134 26-126 78-116 101" stroke="#38BDF8" stroke-width="1.6"/>
+    <path class="gridLine" d="M-74 -42C-40 8-34 70-28 111" stroke="#38BDF8" stroke-width="1.6"/>
+    <path class="gridLine" d="M74 -42C40 8 34 70 28 111" stroke="#38BDF8" stroke-width="1.6"/>
+    <path class="gridLine" d="M188 -20C134 26 126 78 116 101" stroke="#38BDF8" stroke-width="1.6"/>
+
+    <g class="targetArea" filter="url(#softGlow)">
+      <path d="M-128 -2C-80 -28-20 -33 34 -22C83 -12 118 13 136 42C84 72 18 82-44 68C-92 57-124 34-128 -2Z" fill="url(#target)"/>
+      <path class="targetRing" d="M-144 -8C-90 -42-16 -48 48 -34C106 -21 148 11 164 46C104 86 20 99-56 80C-111 66-146 35-144 -8Z" stroke="#B9FFD3" stroke-width="3" fill="none"/>
+      <path class="plantRow" d="M-100 8C-64 -6-22 -9 18 -2C52 4 78 17 96 32" stroke="#E8FFF0" stroke-width="4" stroke-linecap="round"/>
+      <path class="plantRow" d="M-76 31C-42 18 2 16 40 24C66 30 88 40 105 52" stroke="#E8FFF0" stroke-width="4" stroke-linecap="round"/>
+      <path class="plantRow" d="M-44 53C-10 44 28 43 62 50" stroke="#E8FFF0" stroke-width="4" stroke-linecap="round"/>
+      <g fill="#E8FFF0">
+        <path class="sprout" d="M-62 17C-72 5-66 -8-58 -17C-52 -5-50 8-62 17Z"/>
+        <path class="sprout" d="M-18 6C-28 -6-21 -19-13 -28C-7 -16-6 -3-18 6Z"/>
+        <path class="sprout" d="M26 12C16 0 23 -13 31 -22C37 -10 38 3 26 12Z"/>
+        <path class="sprout" d="M70 36C60 24 67 11 75 2C81 14 82 27 70 36Z"/>
+        <path class="sprout" d="M-24 52C-34 40-27 27-19 18C-13 30-12 43-24 52Z"/>
+      </g>
+    </g>
+  </g>
+
+  <g class="scanLine">
+    <path d="M310 259H670" stroke="#E8FFF0" stroke-opacity=".85" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M356 272H624" stroke="#38BDF8" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(76 108)">
+    <rect width="218" height="142" rx="20" fill="#071A25" stroke="#75B843" stroke-opacity=".55"/>
+    <text x="22" y="35" fill="#B9FFD3" font-family="Arial, sans-serif" font-size="15" font-weight="800">AREA ANALYSIS</text>
+    <text x="22" y="64" fill="#E8FFF0" font-family="Arial, sans-serif" font-size="13">Soil fertility</text>
+    <rect x="22" y="76" width="142" height="8" rx="4" fill="#0D3B2E"/>
+    <rect class="metricBar" x="22" y="76" width="142" height="8" rx="4" fill="#75B843"/>
+    <text x="22" y="106" fill="#E8FFF0" font-family="Arial, sans-serif" font-size="13">Water balance</text>
+    <rect x="22" y="118" width="122" height="8" rx="4" fill="#0D3B2E"/>
+    <rect class="metricBar" x="22" y="118" width="122" height="8" rx="4" fill="#38BDF8"/>
+    <text x="172" y="84" fill="#7CFFB2" font-family="Arial, sans-serif" font-size="13" font-weight="800">92%</text>
+    <text x="152" y="126" fill="#38BDF8" font-family="Arial, sans-serif" font-size="13" font-weight="800">81%</text>
+  </g>
+
+  <g transform="translate(718 110)">
+    <rect width="188" height="118" rx="20" fill="#071A25" stroke="#38BDF8" stroke-opacity=".42"/>
+    <text x="22" y="36" fill="#E8FFF0" font-family="Arial, sans-serif" font-size="15" font-weight="800">PLANTING</text>
+    <text x="22" y="62" fill="#B9FFD3" font-family="Arial, sans-serif" font-size="21" font-weight="900">READY</text>
+    <path d="M24 88H164" stroke="#0D3B2E" stroke-width="9" stroke-linecap="round"/>
+    <path class="metricBar" d="M24 88H150" stroke="#75B843" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <text x="490" y="386" fill="#E8FFF0" font-family="Arial, sans-serif" font-size="24" font-weight="900" text-anchor="middle">Satellite identifies the best area to start planting</text>
+</svg>
